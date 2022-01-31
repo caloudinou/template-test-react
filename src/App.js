@@ -19,8 +19,8 @@ const App = () => {
 
   return (
     <TimerWrap>
-      <h1>Exo Hook</h1>
-      <h2>Timer hook</h2>
+      <h1>Test react</h1>
+      <h2>Timer doesn't work</h2>
       Timer: {timer[1]}
       {!isOn && (
         <StyledButton type="button" onClick={() => setIsOn(true)}>
