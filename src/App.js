@@ -1,9 +1,47 @@
-import React from "react";
-import { render } from "react-dom";
-import App from "./App.js";
+import React, { useState, useEffect } from "react";
+import TimerWrap from "./TimerWrap";
+import StyledButton from "./StyledButton";
 
-import "./styles.css";
+const App = () => {
+  const [isOn, setIsOn] = useState(false);
+  const timer = useState(0);
 
-const rootElement = document.getElementById("root");
+  useEffect(
+    () => {
+      // setInterval
+    },
+    [isOn]
+  );
 
-render(<App />, rootElement);
+  const onReset = () => {
+    // handle reset
+  };
+
+  return (
+    <TimerWrap>
+      <h1>Exo Hook</h1>
+      <h2>Timer hook</h2>
+      Timer: {timer[1]}
+      {!isOn && (
+        <StyledButton type="button" onClick={() => setIsOn(true)}>
+          Start
+        </StyledButton>
+      )}
+      {isOn && (
+        <StyledButton isOn type="button" onClick={() => setIsOn(false)}>
+          Stop
+        </StyledButton>
+      )}
+      <StyledButton
+        isReset
+        type="button"
+        disabled={timer[0] = 0}
+        onClick={onReset}
+      >
+        Reset
+      </StyledButton>
+    </TimerWrap>
+  );
+};
+
+export default App;
